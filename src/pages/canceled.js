@@ -1,8 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout/Layout"
-import Button from "../components/Button";
 
 const Canceled = () => (
   <Layout>
@@ -12,12 +10,11 @@ const Canceled = () => (
           Oops! Sorry to know you have cancelled the purchase.
         </h1>
         <a href="/" className="inline-block
-          text-sm py-2 px-8 mt-5
-          bg-primary
-          hover:bg-primary-darker
-          rounded
-          text-white">
-          Go back to Home page
+            py-4 px-8 mt-8
+            bg-primary hover:bg-primary-darker
+            rounded text-white" 
+          >
+            Go back to Home page
           </a>
       </div>
     </section>

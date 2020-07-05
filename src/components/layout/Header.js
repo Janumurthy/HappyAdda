@@ -1,13 +1,12 @@
 import React from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import LogoIcon from '../../images/happy-adda-logo.png';
-import Button from '../../components/Button';
 
 const Header = () => (
   <header className="sticky top-0 bg-white shadow">
-   <div class="container flex justify-between items-center mx-auto py-3 px-8">
-   		<div class="flex items-center text-2xl w-1/2 md:w-1/4">
-   			<div class="mr-3">
+   <div className="container flex justify-between items-center mx-auto py-3 px-8">
+   		<div className="flex items-center text-2xl w-1/2 md:w-1/4">
+   			<div className="mr-3">
 				<img src={LogoIcon} alt="Happy Adda Logo" />
 			</div>
       	</div>

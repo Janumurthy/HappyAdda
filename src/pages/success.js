@@ -1,7 +1,6 @@
 import React from "react"
 
 import Layout from "../components/layout/Layout"
-import Button from "../components/Button";
 
 const Success = () => (
   <Layout>
@@ -10,13 +9,12 @@ const Success = () => (
         <h1 className="text-xl font-bold leading-none">
         Thanks for your purchase, await to give your taste buds a treat soon!
         </h1>
-         <a href="/" className="inline-block
-          text-sm py-2 px-8 mt-5
-          bg-primary
-          hover:bg-primary-darker
-          rounded
-          text-white">
-          Go back to Home page
+          <a href="/" className="inline-block
+            py-4 px-8 mt-8
+            bg-primary hover:bg-primary-darker
+            rounded text-white" 
+          >
+            Go back to Home page
           </a>
       </div>
     </section>

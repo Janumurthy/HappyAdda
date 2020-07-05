@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;  
 @font-face {
 	font-family: 'Montserrat';
 	src: url('../fonts/Montserrat-Thin.ttf') format('ttf');
@@ -76,6 +78,3 @@ h3 {
 header{
 	z-index:10;
 }
-
-@tailwind components;
-@tailwind utilities;  

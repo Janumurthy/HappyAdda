@@ -3,13 +3,14 @@ import React from "react"
 import Layout from "../components/layout/Layout";
 import OrderButton from "../components/OrderButton";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Button from "../components/Button";
+// import Button from "../components/Button";
 import HeroImage1 from "../images/pasta-01.jpg";
 import whiteBgImage from "../images/white_background.jpg";
+// import aboutImage from "../images/mobile_plain-background.jpg";
 import whiteBgImage2 from "../images/plain-background2.jpg";
 import boxImage from "../images/whats_in_the_box.jpg";
+import mobileBoxImage from "../images/mobile-whats_in_the_box.jpg";
 import recipesImage from "../images/recipe_background.jpg";
-import Grid from "../components/Grid";
 import featuresData from '../data/features-data.js';
 import recipeData from '../data/recipe-data.js';
 
@@ -39,7 +40,7 @@ const LandingPage = () => (
           </h1>
           <p className="font-semibold">You are in the RIGHT place.</p>
           <p className="text-xl mt-6 font-light">
-            Pre-order to <span className="font-semibold text-primary">HAPPY ADDA</span> and have your box delivered at your doorstep every month.
+            Subscribe to <span className="font-semibold text-primary">HAPPY ADDA</span> and have your box delivered at your doorstep every month.
           </p>
           <AnchorLink className="inline-block
             py-4 px-8 mt-8
@@ -49,7 +50,7 @@ const LandingPage = () => (
             Get your box now
           </AnchorLink>
         </div>
-        <div className="lg:w-1/2 order-last">
+        <div className="lg:w-1/2 my-8 order-last">
           <img src={HeroImage1} alt="Happy Adda Tasty Pasta" />
         </div>
       </div>
@@ -78,7 +79,14 @@ const LandingPage = () => (
             <span className="text-primary">Why happy</span><span className="text-secondary">adda</span>
           </h1>
           {featuresData.map((feature, i)=> (
-            <Grid feature={feature} columns={4} index={i} reverse={true}/>
+            <div className="md:flex mx-auto items-center my-4" key={i}>
+             <div className="w-full md:w-1/4 p-2">
+                 <img src={feature.src} />
+             </div>
+             <div className={i%2!=0 ? 'md:order-first w-full md:w-3/4 p-2 text-center md:text-left' : 'md:order-last w-full md:w-3/4 p-2 text-center md:text-left'}>
+                 {feature.desc}
+             </div>
+            </div>
           ))}
           <AnchorLink className="inline-block
             py-4 px-8 mt-8
@@ -90,7 +98,7 @@ const LandingPage = () => (
         </div>
       </div>
     </section>
-    <section id="how-to" className="bg-cover bg-right-bottom py-5 md:py-20" style={recipeBg}> 
+    <section id="how-to" className="bg-cover md:bg-right-bottom py-5 md:py-20" style={recipeBg}> 
       <div className="container mx-auto px-8 lg:flex">
         <div className="text-center w-5/6 mx-auto">
           <h1 className="text-4xl xl:text-5xl font-bold mb-8 leading-none">
@@ -98,13 +106,13 @@ const LandingPage = () => (
           </h1>
           <p className="font-semibold my-4">4 MINUTES is all you need to make your bowl of yummilicious pasta.</p>
           {recipeData.map((recipe, i)=> (
-            <div class="flex w-3/5 mx-auto">
-             <div class="w-1/5 p-2 text-center">
+            <div className="w-full flex md:w-3/5 mx-auto" key={i}>
+             <div className="w-1/5 p-2 text-center">
                  <div className="step mx-auto flex items-center rounded-full border-solid border-4 border-primary bg-secondary text-primary w-10 h-10">
                      <span className="number mx-auto font-semibold">{i + 1}</span>
                  </div>
              </div>
-             <div class="w-4/5 p-2 text-left">
+             <div className="w-4/5 p-2 text-left">
                  {recipe.desc}
              </div>
             </div>
@@ -121,12 +129,13 @@ const LandingPage = () => (
     </section>
     <section id="order" className="py-5 md:pt-20 bg-cover" style={cardImage}> 
       <div className="container mx-auto lg:flex lg:pr-5" >
+          <div className="md:hidden"><img src={mobileBoxImage}/></div>
         <div className="card rounded shadow-lg py-10 px-10 bg-neutral lg:order-last lg:ml-auto">
           <h2 className="text-3xl xl:text-4xl font-bold mb-8 leading-none">
           <span className="text-primary">What's in </span> <span className="text-secondary">your Box</span>
           </h2>
           <div className="mx-auto">
-            <p className="font-semibold">Get these for Rs. 499 for <span class="text-primary">Every month!</span></p>
+            <p className="font-semibold">Get these for Rs. 499 for <span className="text-primary">Every month!</span></p>
             <ul>
               <li className="my-5">
                 4 different flavours of instant pasta 
@@ -138,7 +147,9 @@ const LandingPage = () => (
                 A bottle of cold-pressed juice 
               </li>
             </ul>
-            <OrderButton className="mx-auto my-4" size="lg">Pay Now</OrderButton>
+            <div className="flex mx-auto">
+              <OrderButton className="mx-auto my-4" size="lg">Pay Now</OrderButton>
+            </div>
           </div>
           </div>
       </div>
