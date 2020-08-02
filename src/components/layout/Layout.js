@@ -13,7 +13,13 @@ const Layout = ({ children }) => {
         <meta name="description" content="A monthly subscription box of classic fusion home-grown flavours of instant pasta"></meta>
         <meta name="og:title" content="Happy Adda | For the love of Pasta"></meta>
         <meta name="og:description" content="A monthly subscription box of classic fusion home-grown flavours of instant pasta"></meta>
-        <meta name="og:image" src={LogoImage}></meta>
+        <meta name="og:image" content={LogoImage}></meta>
+        <meta name="og:type" content='Website'></meta>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@happyadda" />
+        <meta name="twitter:title" content="Happy Adda | For the love of Pasta" />
+        <meta name="twitter:description" content="View the album on Flickr." />
+        <meta name="twitter:image" content={LogoImage} />
         <link rel="canonical" href="http://www.happyadda.in" />
       </Helmet>
       <Header />
