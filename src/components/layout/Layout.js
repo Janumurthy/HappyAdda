@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
+import LogoImage from '../../images/happy-adda-logo.jpeg';
 import { Helmet } from "react-helmet"
 
 const Layout = ({ children }) => {
@@ -12,8 +13,8 @@ const Layout = ({ children }) => {
         <meta name="description" content="A monthly subscription box of classic fusion home-grown flavours of instant pasta"></meta>
         <meta name="og:title" content="Happy Adda | For the love of Pasta"></meta>
         <meta name="og:description" content="A monthly subscription box of classic fusion home-grown flavours of instant pasta"></meta>
-        <meta name="og:image" src="../../images/happy-adda-logo.jpeg"></meta>
-        <link rel="canonical" href="http://www.happyadda.com" />
+        <meta name="og:image" src={LogoImage}></meta>
+        <link rel="canonical" href="http://www.happyadda.in" />
       </Helmet>
       <Header />
       <main className="text-gray-900">{children}</main>
