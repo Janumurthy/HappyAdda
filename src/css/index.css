@@ -1,64 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;  
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-Thin.ttf') format('ttf');
-	font-weight: 100;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-ExtraLight.ttf') format('ttf');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-Light.ttf') format('ttf');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-Regular.ttf') format('ttf');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-Medium.ttf') format('ttf');
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-SemiBold.ttf') format('ttf');
-	font-weight: 600;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-Bold.ttf') format('ttf');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-ExtraBold.ttf') format('ttf');
-	font-weight: 800;
-	font-style: normal;
-}
 
 body{
-    @apply text-xl;
+	@apply text-base;
+	@screen md {
+		@apply text-xl;
+	}
     @apply font-normal;
 }
 
@@ -73,6 +21,23 @@ h3 {
 }
 .text-secondary{
 	text-shadow: -1px 0px 4px #009244, 1px 1px 4px #009244;
+}
+
+.bg-neutral{
+	background: -webkit-linear-gradient(-45deg, #00cc69 0%,#009944 50%,#009947 51%,#009245 100%);
+	background: linear-gradient(135deg, #00cc69 0%,#15a053 50%,#1ca25a 51%,#029245 100%);
+}
+
+#about{
+    background-position: left 26%;
+}
+
+.about-text{
+	top: 50px;
+}
+
+#how-to{
+	background-position: 65% center;
 }
 
 header{
