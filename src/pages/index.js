@@ -18,8 +18,10 @@ import mobileBoxImage from "../images/box_image.jpeg";
 import recipesImage from "../images/bg/recipe_background.jpg";
 
 import heroData from '../data/hero-data.js';
+import aboutData from '../data/about-data.js';
 import featuresData from '../data/features-data.js';
 import recipeData from '../data/recipe-data.js';
+import subscribeData from '../data/subscribe-data.js';
 import config from '../data/config.js';
 
 const bgImage1 = {
@@ -92,7 +94,7 @@ const LandingPage = () => (
         </div>
         <div className="mt-4 text-white text-center lg:text-left lg:w-1/2">
           <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 pr-4 leading-none">
-            <span className="text-white">Hola! PASTA</span> <span className="text-secondary">BAE</span>
+            <span className="text-white">{heroData.title.part1}</span> <span className="text-secondary">{heroData.title.part2}</span>
           </h1>
           <p className="md:text-lg font-semibold">{heroData.subtitle}</p>
 	        <p className="md:text-lg mt-6 font-light">
@@ -117,9 +119,9 @@ const LandingPage = () => (
       <div className="container mx-auto px-4 md:px-8 lg:flex">
         <div className="about-text relative top-50 text-center lg:text-left lg:w-2/4" data-sal="fade" data-sal-delay="400" data-sal-duration="800" data-sal-easing="ease">
           <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 leading-none">
-            <span className="text-primary">About</span> <span className="text-secondary">us</span>
+            <span className="text-primary">{aboutData.title.part1}</span> <span className="text-secondary">{aboutData.title.part2}</span>
           </h1>
-          <p className="md:text-lg mt-6 font-light"> Happy ADDA is a uniquely crafted monthly fee subscription box that comes with delicious fusion, classic, and home-grown flavours of wholesome instant pasta. Would you want this pasta box of joy delivered straight at your front door?</p>
+          <p className="md:text-lg mt-6 font-light">{aboutData.desc}</p>
           <AnchorLink className="inline-block
             py-2 px-4 
             md:py-4 md:px-8 mt-8
@@ -136,10 +138,10 @@ const LandingPage = () => (
       <div className="container mx-auto px-4 md:px-8 lg:flex">
         <div className="text-white text-center w-full md:w-3/4 mx-auto">
           <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 leading-none" data-sal="fade" data-sal-delay="400" data-sal-duration="800" data-sal-easing="ease">
-            <span className="text-white">Why happy</span><span className="text-secondary">adda</span>
+            <span className="text-white">{featuresData.title.part1}</span><span className="text-secondary">{featuresData.title.part2}</span>
           </h1>
           <div className="md:flex">
-            {featuresData.map((feature, i)=> (
+            {featuresData.features.map((feature, i)=> (
               <div className="items-center my-4 md:w-1/3" data-sal={i%2 === 0 ? "slide-left" : "slide-right"} data-sal-delay={'300'*i} data-sal-duration='600' data-sal-easing="ease" key={i}>
               <div className="w-7/12 md:w-6/12 p-2 mx-auto">
                   <img className="rounded-full" src={feature.src} />
@@ -170,19 +172,19 @@ const LandingPage = () => (
       <div className="container mx-auto py-10 px-4 md:px-8 lg:flex">
         <div className="text-center w-full mx-auto">
           <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 leading-none" data-sal="fade" data-sal-delay="400" data-sal-duration="800" data-sal-easing="ease">
-          <span className="text-primary">Make your own</span> <span className="text-secondary">4-min Pasta</span>
+          <span className="text-primary">{recipeData.title.part1}</span> <span className="text-secondary">{recipeData.title.part2}</span>
           </h1>
-          <p className="md:text-lg font-semibold my-4">4 MINUTES is all you need to make your bowl of yummilicious pasta.</p>
-          {recipeData.map((recipe, i)=> (
+          <p className="md:text-lg font-semibold my-4">{recipeData.subtitle}</p>
+          {recipeData.recipeSteps.map((step, i)=> (
             <div className="md:flex mx-auto items-center my-4 w-12/12 md:w-6/12 py-4 px-1" data-sal='flip-left' data-sal-delay={'300'*i} data-sal-duration='600' data-sal-easing="ease" key={i}>
             <div className="w-4/12 md:w-1/4 p-2 mx-auto">
-                <img src={recipe.src} />
+                <img src={step.src} />
             </div>
             <h2 className="text-xl md:text-2xl xl:text-4xl font-bold my-2 leading-none text-white">
-              {recipe.title}
+              {step.title}
             </h2>
             <div className="md:order-last w-full md:w-3/4 text-center text-md md:text-lg xl:text-xl">
-                {recipe.desc}
+                {step.desc}
             </div>
             </div>
           ))}
@@ -230,10 +232,10 @@ const LandingPage = () => (
       <div className="container mx-auto px-4 md:px-8 lg:flex">
         <div className="text-white text-center w-full md:w-3/4 mx-auto" data-sal="fade" data-sal-delay="100" data-sal-duration="800" data-sal-easing="ease">
           <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 leading-none">
-            <span className="text-white">Wanna know more about HAPPY</span><span className="text-secondary">ADDA</span>
+            <span className="text-white">{subscribeData.title.part1}</span><span className="text-secondary">{subscribeData.title.part2}</span><span className="text-white">{subscribeData.title.part3}</span>
           </h1>
           <p className="md:text-lg mt-6 font-light">
-            If you would like to become a gold member, subscribe to HappyAdda and we will contact you about the offers and details of the subscription
+            {subscribeData.desc}
           </p>
           <SubscriptionForm />
           <div className="thank-you hidden w-full max-w-lg mx-auto mt-4 mb-6 px-4 py-4" data-sal="zoom-in" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease">
