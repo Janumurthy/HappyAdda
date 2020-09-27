@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;  
 
 body{
+	font-family: 'Montserrat';
+	font-weight: 500;
 	@apply text-base;
 	@screen md {
 		@apply text-xl;
@@ -19,6 +22,7 @@ h2 {
 h3 {
     @apply text-lg;
 }
+
 .text-secondary{
 	text-shadow: -1px 0px 4px #009244, 1px 1px 4px #009244;
 }

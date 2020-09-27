@@ -8,7 +8,9 @@ const Header = () => (
    <div className="container flex justify-between items-center mx-auto py-3 px-8">
    		<div className="flex items-center text-2xl w-1/2 md:w-1/4">
    			<div className="mr-3">
+				<a className="inline-block" href="/">
 				<img src={LogoIcon} alt="Happy Adda Logo" />
+				</a>
 			</div>
       	</div>
 		<div className="flex items-center sm:mt-0">

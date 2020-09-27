@@ -3,7 +3,6 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import BackgroundSlider from 'gatsby-image-background-slider'
 
 import Layout from "../components/layout/Layout";
-import OrderButton from "../components/OrderButton";
 import SubscriptionForm from "../components/SubscriptionForm";
 
 // import Button from "../components/Button";
@@ -22,7 +21,7 @@ import aboutData from '../data/about-data.js';
 import featuresData from '../data/features-data.js';
 import recipeData from '../data/recipe-data.js';
 import subscribeData from '../data/subscribe-data.js';
-import config from '../data/config.js';
+const paymentMode = process.env.GATSBY_PAYMENT_MODE;
 
 const bgImage1 = {
   backgroundImage: `url(${whiteBgImage2})`
@@ -107,7 +106,7 @@ const LandingPage = () => (
             py-2 px-4 md:py-4 md:px-8 mt-8 
             bg-secondary hover:bg-primary-darker
             rounded text-primary mx-auto text-center" 
-            href={config.payment ? "#order" : '#subscribe'}
+            href={paymentMode ? "#order" : '#subscribe'}
             data-sal="zoom-in" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease"
           >
             Get your box now
@@ -127,7 +126,7 @@ const LandingPage = () => (
             md:py-4 md:px-8 mt-8
             bg-primary hover:bg-primary-darker
             rounded text-white" 
-            href={config.payment ? "#order" : '#subscribe'}
+            href={paymentMode ? "#order" : '#subscribe'}
             data-sal="zoom-in" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease">
             Get your box now
           </AnchorLink>
@@ -160,7 +159,7 @@ const LandingPage = () => (
             md:py-4 md:px-8 mt-8
             bg-secondary hover:bg-primary-darker
             rounded text-primary" 
-            href={config.payment ? "#order" : '#subscribe'}
+            href={paymentMode ? "#order" : '#subscribe'}
             data-sal="zoom-in" data-sal-delay="800" data-sal-duration="600" data-sal-easing="ease"
           >
             Get your box now
@@ -193,7 +192,7 @@ const LandingPage = () => (
             md:py-4 md:px-8 mt-8
             bg-primary hover:bg-primary-darker
             rounded text-white" 
-            href={config.payment ? "#order" : '#subscribe'}
+            href={paymentMode ? "#order" : '#subscribe'}
             data-sal="zoom-in" data-sal-delay="1000" data-sal-duration="600" data-sal-easing="ease"
           >
             Get your box now
@@ -221,14 +220,11 @@ const LandingPage = () => (
                 A bottle of cold-pressed juice 
               </li>
             </ul>
-            <div className={config.payment ? "flex mx-auto" : "hidden"}>
-              <OrderButton data-sal="zoom-in" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease" className="mx-auto my-4" size="lg">Pay Now</OrderButton>
-            </div>
           </div>
           </div>
       </div>
     </section>
-    <section id="subscribe" className="py-5 md:py-20 bg-neutral"> 
+    <section id={paymentMode ? "order" : "subscribe"} className="py-5 md:py-20 bg-neutral"> 
       <div className="container mx-auto px-4 md:px-8 lg:flex">
         <div className="text-white text-center w-full md:w-3/4 mx-auto" data-sal="fade" data-sal-delay="100" data-sal-duration="800" data-sal-easing="ease">
           <h1 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 leading-none">
@@ -237,10 +233,20 @@ const LandingPage = () => (
           <p className="md:text-lg mt-6 font-light">
             {subscribeData.desc}
           </p>
-          <SubscriptionForm />
+          <SubscriptionForm paymentOn = {paymentMode}/>
           <div className="thank-you hidden w-full max-w-lg mx-auto mt-4 mb-6 px-4 py-4" data-sal="zoom-in" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease">
             <p className="text-lg md:text-xl mt-6">
              Thanks for your interest, we will contact you soon!
+            </p>
+          </div>
+          <div id="thank-you-purchase" className="thank-you-purchase hidden w-full max-w-lg mx-auto mt-4 mb-6 px-4 py-4" data-sal="zoom-in" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease">
+            <p className="text-lg md:text-xl mt-6">
+             Thanks for your purchase $name, your delicious pasta will be delivered soon! You will receive a confirmation on your email $email to track the order.
+            </p>
+          </div>
+          <div id="error-purchase" className="error-purchase hidden w-full max-w-lg mx-auto mt-4 mb-6 px-4 py-4" data-sal="zoom-in" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease">
+            <p className="text-lg md:text-xl mt-6">
+             Sorry, your payment could not processed, please try again later or contact us on whatsapp for support.
             </p>
           </div>
         </div>

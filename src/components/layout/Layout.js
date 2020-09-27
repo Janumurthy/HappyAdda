@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
         <meta name="twitter:title" content="Happy Adda | For the love of Pasta" />
         <meta name="twitter:description" content="View the album on Flickr." />
         <meta name="twitter:image" content={LogoImage} />
-        <link rel="canonical" href="http://www.happyadda.in" />
+        <link rel="canonical" href="https://www.happyadda.in" />
       </Helmet>
       <Header />
       <main className="text-gray-900">{children}</main>

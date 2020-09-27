@@ -9,7 +9,9 @@ const Footer = () => (
         {config.payment ?
           <p><a href="/terms-and-conditions">Terms &amp; Conditions</a>
           <span className="px-3">|</span>
-          <a href="/privacy-policy">Privacy Policy</a></p>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <span className="px-3">|</span>
+          <a href="/contact-us">Contact us</a></p>
           : '' }
       </div>
     </div>

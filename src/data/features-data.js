@@ -17,7 +17,7 @@ export default {
         {
             title: 'FUSION',
             desc:
-            'Bid Adieu to boring flavours. Savour our scrumptious fusion favours. ',
+            'Bid Adieu to boring flavours. Savour our scrumptious fusion flavours. ',
             src: illustration2
         },
         {
