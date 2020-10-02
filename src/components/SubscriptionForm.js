@@ -104,8 +104,7 @@ class SubscriptionForm extends React.Component {
 			"order_id" : res.razorpay_order_id,
 			"payment_id" : res.razorpay_payment_id,
 		  };
-			const BASE_URL = process.env.GATSBY_BASE_URL;
-			const confirmOrderUrl = `${BASE_URL}confirmOrder`;
+			const confirmOrderUrl = `/confirmOrder`;
 			axios({
 				method: 'POST',
 				url: confirmOrderUrl,
@@ -133,9 +132,8 @@ class SubscriptionForm extends React.Component {
 
 	paymentHandler = async (e) => { // Create Order 
 		console.log("Creating order....");
-		const API_URL = 'http://localhost:8000/';
 		e.preventDefault();
-		const orderUrl = `${API_URL}order`;
+		const orderUrl = `/order`;
 		const response = await axios.get(orderUrl);
 		console.log(response);
 		console.log("Order created");
