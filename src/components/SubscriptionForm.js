@@ -104,7 +104,8 @@ class SubscriptionForm extends React.Component {
 			"order_id" : res.razorpay_order_id,
 			"payment_id" : res.razorpay_payment_id,
 		  };
-			const confirmOrderUrl = `/confirmOrder`;
+			const BASE_URL = 'https://dev--happyadda.netlify.app/';
+			const confirmOrderUrl = `${BASE_URL}confirmOrder`;
 			axios({
 				method: 'POST',
 				url: confirmOrderUrl,
@@ -132,8 +133,9 @@ class SubscriptionForm extends React.Component {
 
 	paymentHandler = async (e) => { // Create Order 
 		console.log("Creating order....");
+		const API_URL = 'https://dev--happyadda.netlify.app/';
 		e.preventDefault();
-		const orderUrl = `/order`;
+		const orderUrl = `${API_URL}order`;
 		const response = await axios.get(orderUrl);
 		console.log(response);
 		console.log("Order created");
