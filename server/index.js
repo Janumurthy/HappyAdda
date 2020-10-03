@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const Razorpay = require('razorpay');
-
+const cors = require("cors");;
 const app = express()
 
 const instance = new Razorpay({
