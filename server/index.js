@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const Razorpay = require('razorpay');
-const cors = require("cors");;
+const cors = require("cors");
+const publicPath = path.join(__dirname, '../..', 'public');
 const app = express()
+
 
 const instance = new Razorpay({
     key_id: process.env.GATSBY_RAZOR_PAY_KEY_ID,
@@ -11,6 +13,12 @@ const instance = new Razorpay({
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(publicPath));
+
+// Render landing page
+app.get('', (req, res) => {
+    res.sendfile(path.join(publicPath, 'index.html'))
+})
 // Here you can define your routes
 // API for creating orders using Razorpay
 app.get("/order", (req, res) => {
