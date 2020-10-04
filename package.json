@@ -42,15 +42,13 @@
   ],
   "license": "",
   "scripts": {
-    "serve": "run-p serve:**",
+    "serve": "gatsby serve",
     "build": "run-p build:**",
     "build:gatsby":"gatsby build",
     "build:lambda": "netlify-lambda build functions",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "node src/server/app.js",
-    "serve:gatsby": "gatsby serve",
-    "serve:lambda": "netlify-lambda serve functions",
+    "start": "npm run develop",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
