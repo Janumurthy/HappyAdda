@@ -9,6 +9,7 @@ yarn-error.log*
 node_modules/
 build_functions/
 jspm_packages/
+.netlify
 
 # Typescript v1 declaration files
 typings/

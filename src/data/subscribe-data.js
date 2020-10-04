@@ -1,8 +1,7 @@
 export default {
     title: {
-        part1: "You ",
-        part2: "can't ",
-        part3: "miss this"
+        part1: "Order ",
+        part2: "Now",
     },
-    desc: "Do you want to join our PASTA tribe, subscribe right away to avail 10% off and get access to exclusive early bird offers."
+    desc: "You are one step away from enjoying your delicious pasta from the comfort of your couch"
 }

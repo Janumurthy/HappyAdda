@@ -23,14 +23,9 @@ const Header = () => (
 			<AnchorLink className="px-4 hidden md:block" href="#how-to">
 				Make your own Pasta
 			</AnchorLink>
-			{config.payment ?
-				<AnchorLink className="py-3 px-4 bg-primary rounded text-white" href="#order">
-					Order Now
-				</AnchorLink> :
-				<AnchorLink className="py-3 px-4 bg-primary rounded text-white"  href="#subscribe">
-					Subscribe Now
-				</AnchorLink> 
-			}
+			<a className="py-3 px-4 bg-primary rounded text-white" href="/order">
+				{config.payment ? 'Order Now' : 'Subscribe Now' }
+			</a> 
 		</div>
     </div>
   </header>

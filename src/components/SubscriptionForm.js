@@ -104,11 +104,10 @@ class SubscriptionForm extends React.Component {
 			"order_id" : res.razorpay_order_id,
 			"payment_id" : res.razorpay_payment_id,
 		  };
-			const BASE_URL = 'https://dev--happyadda.netlify.app/';
-			const confirmOrderUrl = `${BASE_URL}confirmOrder`;
+			const paymentUrl = '/api/payments';
 			axios({
 				method: 'POST',
-				url: confirmOrderUrl,
+				url: paymentUrl,
 				data:{ orderData }
 			})
 			.then(res => {
@@ -127,16 +126,16 @@ class SubscriptionForm extends React.Component {
 			})
 			.catch(err => {
 				console.log(err);
+				document.getElementById("checkout").classList.add("hidden");
 				document.getElementById('error-purchase').classList.remove('hidden');
 			});   
 	}
 
 	paymentHandler = async (e) => { // Create Order 
 		console.log("Creating order....");
-		const API_URL = 'https://dev--happyadda.netlify.app/';
 		e.preventDefault();
-		const orderUrl = `${API_URL}order`;
-		const response = await axios.get(orderUrl);
+		const paymentUrl = '/api/payments';
+		const response = await axios.get(paymentUrl);
 		console.log(response);
 		console.log("Order created");
 		this.handleCheckout(response);
@@ -176,9 +175,11 @@ class SubscriptionForm extends React.Component {
                     <input className="appearance-none bg-white w-full shadow text-gray-700 mr-3 mb-2 py-2 px-2 leading-tight focus:outline-none rounded-md" onChange={this.handleChange} type="text" placeholder="Phone number (Optional)" name="contact" aria-label="contact" />
                     {process.env.GATSBY_PAYMENT_MODE ? 
 						<div>
-							<input className="bg-white shadow mr-3 mt-2 py-2 px-2 leading-tight focus:outline-none rounded-sm" onChange={this.handleChange} type="checkbox" name="subscribe" aria-label="subscribe"/> 
-							<label htmlFor="subscribe" className="width-md">I agree to subscribe to PASTA Tribe</label>
-							<p className="flex-shrink-0 mx-auto flex bg-secondary border-secondary text-sm md:text-lg border-4 text-primary py-2 px-4 mt-4 rounded" onClick={() => {document.getElementById("address-section").classList.remove("hidden");}}>Proceed to Pay</p>
+							<div className="flex flex-left my-2">
+								<input className="bg-white shadow mr-3 w-4 h-4 py-2 px-2 leading-tight focus:outline-none rounded-sm" onChange={this.handleChange} type="checkbox" name="subscribe" aria-label="subscribe"/> 
+								<label htmlFor="subscribe" className="width-md">I agree to subscribe to PASTA Tribe</label>
+							</div>
+							<a className="inline-block flex-shrink-0 mx-auto bg-secondary border-secondary text-sm md:text-lg border-4 text-primary py-2 px-4 mt-4 rounded" onClick={() => {document.getElementById("address-section").classList.remove("hidden");}}>Proceed to Pay</a>
 							<div id="address-section" className="hidden" data-sal="slide-left" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease"> 
 								<div id="billing-address">
 									<p className="md:text-lg mt-6 font-medium text-left">Billing Address</p>
@@ -189,10 +190,14 @@ class SubscriptionForm extends React.Component {
 								</div>
 								<div data-sal="slide-left" data-sal-delay="300" data-sal-duration="600" data-sal-easing="ease"> 
 									<p className="md:text-lg mt-6 font-medium text-left">Delivery Address</p>
-									<input className="bg-white shadow mr-3 mt-2 py-2 px-2 leading-tight focus:outline-none display" onChange={this.handleChange} type="radio" name="delivery" value="same" aria-label="subscribe"/> 
-									<label htmlFor="subscribe" className="width-md">Same as Billing Address</label>
-									<input className="bg-white shadow mr-3 mt-2 py-2 px-2 leading-tight focus:outline-none" onChange={this.handleChange} type="radio" name="delivery" value="different" aria-label="subscribe"/> 
-									<label htmlFor="subscribe" className="width-md">Gift a friend / Deliver to other address</label>
+									<div className="flex flex-left my-2">
+										<input className="bg-white shadow mr-3 mt-1 py-2 px-2 w-4 h-4 leading-tight focus:outline-none display" onChange={this.handleChange} type="radio" name="delivery" value="same" aria-label="subscribe"/> 
+										<label htmlFor="subscribe" className="width-md">Same as Billing Address</label>
+									</div>
+									<div className="flex flex-left my-2">
+										<input className="bg-white shadow mr-3 mt-1 py-2 px-2 w-4 h-4 leading-tight focus:outline-none" onChange={this.handleChange} type="radio" name="delivery" value="different" aria-label="subscribe"/> 
+										<label htmlFor="subscribe" className="width-md">Gift a friend / Deliver to other address</label>
+									</div>
 									<div id="delivery-address" className="hidden">
 										<input className="appearance-none bg-white w-full shadow text-gray-700 mr-3 mb-2 py-2 px-2 leading-tight focus:outline-none rounded-md" onChange={this.handleChange} type="text" placeholder="Address Line 1" name="delivery_address1" aria-label="address1" />
 										<input className="appearance-none bg-white w-full shadow text-gray-700 mr-3 mb-2 py-2 px-2 leading-tight focus:outline-none rounded-md" onChange={this.handleChange} type="text" placeholder="Address Line 2" name="delivery_address2" aria-label="address2" />
