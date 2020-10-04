@@ -1,7 +1,7 @@
 [build]
     command = "yarn build"
     functions = "build_functions"
-    publish = "build"
+    publish = "public"
 [[redirects]]
     from = "/api/*"
     to= "/.netlify/functions/:splat"
